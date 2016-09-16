@@ -472,6 +472,7 @@
     <Content Include="Assets\Teams\valor.png" />
     <Content Include="Assets\UI\avatar.gif" />
     <Content Include="Assets\UI\panelBG.png" />
+    <Content Include="Assets\UI\pokestopBG.png" />                            
     <Content Include="Assets\UI\candy.png" />
     <Content Include="Assets\UI\close.png" />
     <Content Include="Assets\UI\egg.png" />
