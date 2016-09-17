@@ -467,9 +467,9 @@
     <Content Include="Assets\Pokemons\99.png" />
     <Content Include="Assets\Pokemons\Egg.png" />
     <Content Include="Assets\Teams\instinct.png" />
-    <Content Include="Assets\Teams\mystic.png" />
+    <Content Include="Assets\Teams\mystic.gif" />
     <Content Include="Assets\Teams\no-team.png" />
-    <Content Include="Assets\Teams\valor.png" />
+    <Content Include="Assets\Teams\valor.gif" />
     <Content Include="Assets\UI\avatar.gif" />
     <Content Include="Assets\UI\panelBG.png" />
     <Content Include="Assets\UI\pokestopBG.png" />                            
