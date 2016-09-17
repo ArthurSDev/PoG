@@ -9,7 +9,6 @@ using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
-using GeoExtensions;
 using Google.Protobuf.Collections;
 using PokemonGo.RocketAPI.Extensions;
 using PokemonGo_UWP.Entities;
