@@ -226,7 +226,8 @@ namespace PokemonGo_UWP.Utils
         /// <summary>
         ///     Collection of incense Pokemon
         /// </summary>
-        public static ObservableCollection<IncensePokemon> IncensePokemons { get; set; } = new ObservableCollection<IncensePokemon>();
+        public static ObservableCollection<IncensePokemon> IncensePokemons { get; set; } = 
+            new ObservableCollection<IncensePokemon>();
         
         /// <summary>
         ///     Collection of Pokestops in the current area
