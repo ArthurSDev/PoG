@@ -203,7 +203,6 @@ namespace PokemonGo_UWP.Utils
         /// </summary>
         public static InventoryDelta InventoryDelta { get; private set; }
 
-       
         #region Collections
 
         /// <summary>
@@ -226,8 +225,7 @@ namespace PokemonGo_UWP.Utils
         /// <summary>
         ///     Collection of incense Pokemon
         /// </summary>
-        public static ObservableCollection<IncensePokemon> IncensePokemons { get; set; } = 
-            new ObservableCollection<IncensePokemon>();
+        public static ObservableCollection<IncensePokemon> IncensePokemons { get; set; } = new ObservableCollection<IncensePokemon>();
         
         /// <summary>
         ///     Collection of Pokestops in the current area
@@ -581,12 +579,6 @@ namespace PokemonGo_UWP.Utils
         private static DateTime _lastUpdate;
 
         /// <summary>
-        ///     Incense usage status
-        /// </summary>
-        public static bool IsIncenseActive = false;
-        public static DateTime IncenseActivationTime = default(DateTime);
-
-        /// <summary>
         ///     Toggles the update timer based on the isEnabled value
         /// </summary>
         /// <param name="isEnabled"></param>
@@ -646,24 +638,18 @@ namespace PokemonGo_UWP.Utils
             Logger.Write($"Found {newLuredPokemon.Length} lured Pokemon");
             LuredPokemons.UpdateByIndexWith(newLuredPokemon, x => x);
 
-            // Update IncensePokemon if incense active (set less than 30 minutes ago)
-            TimeSpan ts = DateTime.Now - GameClient.IncenseActivationTime;
-            if (IsIncenseActive && ts.Seconds < 1800)
+            // Update IncensePokemon
+            //var incensePokemonResponse = mapObjects.Item6;
+            // Update IncensePokemon
+            // TODO BB: where to get poke?
+            var incensePokemonResponse = await GetIncensePokemons(LocationServiceHelper.Instance.Geoposition);
+            if (incensePokemonResponse.Result == GetIncensePokemonResponse.Types.Result.IncenseEncounterAvailable)
             {
-                var incensePokemonResponse = await GetIncensePokemons(LocationServiceHelper.Instance.Geoposition);
-                if (incensePokemonResponse.Result == GetIncensePokemonResponse.Types.Result.IncenseEncounterAvailable)
-                {
-                    IncensePokemon[] newIncensePokemon;
-                    newIncensePokemon = new IncensePokemon[1];
-                    newIncensePokemon[0] = new IncensePokemon(incensePokemonResponse, incensePokemonResponse.Latitude, incensePokemonResponse.Longitude);
-                    Logger.Write($"Found incense Pokemon");
-                    IncensePokemons.UpdateByIndexWith(newIncensePokemon, x => x);
-                }
-            }
-            else
-            {
-                IsIncenseActive = false;
-                IncenseActivationTime = default(DateTime);
+                IncensePokemon[] newIncensePokemon;
+                newIncensePokemon = new IncensePokemon[1];
+                newIncensePokemon[0] = new IncensePokemon(incensePokemonResponse, incensePokemonResponse.Latitude, incensePokemonResponse.Longitude);
+                Logger.Write($"Found incense Pokemon");
+                IncensePokemons.UpdateByIndexWith(newIncensePokemon, x => x);
             }
 
             Logger.Write("Finished updating map objects");
@@ -1127,7 +1113,7 @@ namespace PokemonGo_UWP.Utils
         }
 
         /// <summary>
-        ///     Use selected incense
+        ///     Uses selected incense
         /// </summary>
         /// <param name="item"></param>
         /// <param name="amount"></param>
