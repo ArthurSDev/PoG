@@ -1068,7 +1068,7 @@ namespace PokemonGo_UWP.Utils
            
             if (GameClient.IsIncenseActive)
             {
-                return new Uri(resourceUriString + "_withincense.png");
+                return new Uri(resourceUriString + "_withincense.gif");
             }
             else
             {
