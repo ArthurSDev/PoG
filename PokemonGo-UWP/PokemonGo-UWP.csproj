@@ -21,6 +21,7 @@
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundlePlatforms>arm</AppxBundlePlatforms>
     <AppxBundle>Always</AppxBundle>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -314,8 +315,7 @@
     <Content Include="Assets\LiveTiles\Transparent\Wide310x150Logo.scale-400.png" />
     <Content Include="Assets\Square44x44Logo.png" />
     <Content Include="Assets\UI\ash.png" />
-    <Content Include="Assets\UI\ash_withincense.gif" />
-    <Content Include="Assets\UI\bush.png" />
+    <Content Include="Assets\UI\ash_withincense.png" />
     <Content Include="Assets\UI\night_sky_texture_by_amdillon.jpg" />
     <Content Include="Assets\Pokemons\1.png" />
     <Content Include="Assets\Pokemons\10.png" />
@@ -470,12 +470,11 @@
     <Content Include="Assets\Pokemons\99.png" />
     <Content Include="Assets\Pokemons\Egg.png" />
     <Content Include="Assets\Teams\instinct.png" />
-    <Content Include="Assets\Teams\mystic.gif" />
+    <Content Include="Assets\Teams\mystic.png" />
     <Content Include="Assets\Teams\no-team.png" />
-    <Content Include="Assets\Teams\valor.gif" />
+    <Content Include="Assets\Teams\valor.png" />
     <Content Include="Assets\UI\avatar.gif" />
     <Content Include="Assets\UI\panelBG.png" />
-    <Content Include="Assets\UI\pokestopBG.png" />                            
     <Content Include="Assets\UI\candy.png" />
     <Content Include="Assets\UI\close.png" />
     <Content Include="Assets\UI\egg.png" />
@@ -755,6 +754,7 @@
     </Compile>
     <Compile Include="Entities\FortDataWrapper.cs" />
     <Compile Include="Entities\IMapPokemon.cs" />
+    <Compile Include="Entities\IncensePokemon.cs" />
     <Compile Include="Entities\IUpdatable.cs" />
     <Compile Include="Entities\Language.cs" />
     <Compile Include="Entities\LuredPokemon.cs" />
@@ -880,7 +880,6 @@
     <None Include="PokemonGo-UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\UI\ash.png" />
     <Content Include="Assets\UI\avatar.png" />
     <Content Include="Assets\UI\Desert.jpg" />
     <Content Include="Assets\UI\gem.png" />
