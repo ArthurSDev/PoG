@@ -620,7 +620,7 @@ namespace PokemonGo_UWP.Utils
 
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-           var teamColor = (TeamColor)value;
+            var teamColor = (TeamColor)value;
             var path = "ms-appx:///Assets/Teams/";
 
             switch (teamColor)
@@ -638,7 +638,7 @@ namespace PokemonGo_UWP.Utils
                     path += "no-team";
                     break;
             }
-            path += ".gif";
+            path += ".png";
 
             return new BitmapImage(new Uri(path));
         }
@@ -674,7 +674,7 @@ namespace PokemonGo_UWP.Utils
                 default:
                     return null;
             }
-            path += ".gif";
+            path += ".png";
 
             return new BitmapImage(new Uri(path));
         }
@@ -1048,6 +1048,32 @@ namespace PokemonGo_UWP.Utils
 
             // You've cleared all the reasons NOT to show it. So show it.
             return Visibility.Visible;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            return value;
+        }
+
+        #endregion
+    }
+
+    public class IsIncenseActiveToPlayerIconConverter : IValueConverter
+    {
+        #region Implementation of IValueConverter
+
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            var resourceUriString = "ms-appx:///Assets/UI/ash";
+           
+            if (GameClient.IsIncenseActive)
+            {
+                return new Uri(resourceUriString + "_withincense.png");
+            }
+            else
+            {
+                return new Uri(resourceUriString + ".png");
+            }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
