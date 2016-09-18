@@ -1,4 +1,4 @@
-﻿<Page
+<Page
     x:Class="PokemonGo_UWP.Views.ItemsInventoryPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -112,6 +112,9 @@
                           Grid.Row="1"
                           Padding="0,0,0,60">
 
+                    
+                    <!-- IsItemClickEnabled="False"-->
+                    
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -140,7 +143,13 @@
                                        Width="84"
                                        Height="84"
                                        Margin="3,0,8,0"
-                                       Opacity="{Binding Converter={StaticResource ItemUseabilityToOpacityConverter}}"/>
+                                       Opacity="{Binding Converter={StaticResource ItemUseabilityToOpacityConverter}}">
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="Tapped">
+                                            <core:InvokeCommandAction Command="{Binding ElementName=Root, Path=DataContext.UseItemCommand}" CommandParameter="{Binding}"  />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                </Image>
                                 <Border Grid.Row="2" 
                                         Grid.Column="0"
                                         HorizontalAlignment="Left"
