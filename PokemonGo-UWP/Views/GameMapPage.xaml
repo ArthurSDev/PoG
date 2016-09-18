@@ -242,7 +242,7 @@
         <utils:NearbyPokemonInPokedexToVisibilityConverter x:Key="NearbyPokemonInPokedexToVisibilityConverter" />
         <utils:InverseNearbyPokemonInPokedexToVisibilityConverter
             x:Key="InverseNearbyPokemonInPokedexToVisibilityConverter" />
-        <utils:IsIncenseActiveToPlayerIconConverter x:Key="IsIncenseActiveToPlayerIconConverter" />                    
+        <utils:IsIncenseActiveToPlayerIconConverter x:Key="IsIncenseActiveToPlayerIconConverter" />                  
 
     </Page.Resources>
 
@@ -288,7 +288,6 @@
                          x:Name="GameMapControl">
                 
                 <Image Source="{Binding Converter={StaticResource IsIncenseActiveToPlayerIconConverter}}"
-                <Image Source="{Binding IsIncenseActive, Converter={StaticResource IsIncenseActiveToPlayerIconConverter}}"
                        maps:MapControl.NormalizedAnchorPoint="0.5,1"
                        Stretch="Uniform"
                        Height="48"
